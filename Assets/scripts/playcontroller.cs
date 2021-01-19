@@ -8,6 +8,7 @@ public class playcontroller : MonoBehaviour
     public float turnspeed = 30f;
     public float horizontalInput;
     public float verticalInput;
+    public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,10 @@ public class playcontroller : MonoBehaviour
         //transform.rotation.Set(0f, transform.rotation.y, 0f, 0f);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Instantiate(projectilePrefab, transform.position, transform.rotation);
+        }
     }
 }
 
