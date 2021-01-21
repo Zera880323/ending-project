@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectCollisions : MonoBehaviour
+public class DestroyOutOfBounds : MonoBehaviour
 {
+    private float topBound = 30;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,15 +15,9 @@ public class DetectCollisions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //Destroy(gameObject);
-        if (other.gameObject.CompareTag("Animal"))
+        if (transform.position.z < topBound)
         {
-            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }
